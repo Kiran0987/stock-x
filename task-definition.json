@@ -2,7 +2,7 @@
     "family": "webserver",
     "containerDefinitions": [
         {
-            "name": "stockx",
+            "name": "stock_task",
             "image": "nginx",
             "memory": "100",
             "cpu": "99"
