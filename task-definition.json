@@ -1,5 +1,5 @@
 {
-    "family": "stock_task",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:289955253311:task-definition/stock_task:1",
     "containerDefinitions": [
         {
             "name": "stockx",
@@ -30,8 +30,43 @@
             }
         }
     ],
+    "family": "stock_task",
     "executionRoleArn": "arn:aws:iam::289955253311:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -40,5 +75,8 @@
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
-    }
+    },
+    "registeredAt": "2023-03-02T12:49:47.168Z",
+    "registeredBy": "arn:aws:iam::289955253311:user/kiran@mantra",
+    "tags": []
 }
