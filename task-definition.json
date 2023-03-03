@@ -18,7 +18,7 @@
                 }
             ],
             "image": "289955253311.dkr.ecr.ap-northeast-2.amazonaws.com/stockx-poc-repo@sha256:18a87a33d25521dcf4854df2c02603cd7e13d514f01ac87f837ab951ed94455d",
-            "name": "stockx-app"
+            "name": "stock_task"
         }
     ],
     "memory": "512",
