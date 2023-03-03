@@ -1,3 +1,32 @@
-    - name: Download task definition
-      run: |
-        aws ecs describe-task-definition --task-definition my-task-definition-family --query taskDefinition > task-definition.json
+   {
+    "executionRoleArn": "arn:aws:iam::601912882130:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/fargate/service",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "fargate"
+                }
+            },
+            "portMappings": [
+                {
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "containerPort": 3000
+                }
+            ],
+            "image": "289955253311.dkr.ecr.ap-northeast-2.amazonaws.com/stockx-poc-repo@sha256:18a87a33d25521dcf4854df2c02603cd7e13d514f01ac87f837ab951ed94455d",
+            "name": "stockx-app"
+        }
+    ],
+    "memory": "512",
+    "family": "stock_task",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256"
+   
+}
