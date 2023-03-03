@@ -1,32 +1,44 @@
-   {
-    "executionRoleArn": "arn:aws:iam::601912882130:role/ecsTaskExecutionRole",
+{
+    "family": "stock_task",
     "containerDefinitions": [
         {
+            "name": "stockx",
+            "image": "289955253311.dkr.ecr.ap-northeast-2.amazonaws.com/stockx-poc-repo:bc824e67ae6106460abc153a9a50c52610d8db2c",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "stockx-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/fargate/service",
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/stock_task",
                     "awslogs-region": "ap-northeast-2",
-                    "awslogs-stream-prefix": "fargate"
+                    "awslogs-stream-prefix": "ecs"
                 }
-            },
-            "portMappings": [
-                {
-                    "hostPort": 3000,
-                    "protocol": "tcp",
-                    "containerPort": 3000
-                }
-            ],
-            "image": "289955253311.dkr.ecr.ap-northeast-2.amazonaws.com/stockx-poc-repo@sha256:18a87a33d25521dcf4854df2c02603cd7e13d514f01ac87f837ab951ed94455d",
-            "name": "stock_task"
+            }
         }
     ],
-    "memory": "512",
-    "family": "stock_task",
+    "executionRoleArn": "arn:aws:iam::289955253311:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "networkMode": "awsvpc",
-    "cpu": "256"
-   
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
 }
